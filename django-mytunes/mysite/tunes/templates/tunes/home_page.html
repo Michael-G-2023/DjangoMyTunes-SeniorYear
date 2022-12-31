@@ -1,0 +1,28 @@
+{% extends "tunes/base_template.html" %}
+
+{% block content %}
+<table class="table table-dark table-hover">
+    <tr><td>
+        <a href = "{% url 'tunes:all_artists' %}">Browse by Artist</a>
+    </td></tr>
+    
+    <tr><td>
+        <a href = "{% url 'tunes:all_albums' %}">Browse by Album</a>
+    </td></tr>
+
+    <tr><td>
+        <a href = "{% url 'tunes:all_genres' %}">Browse by Genre</a>
+    </td></tr>
+
+    <tr><td>
+        <a href = "{% url 'tunes:all_playlists' %}">Browse by Playlists</a>
+    </td></tr>
+        
+    <tr><td>
+        <a href = "{% url 'tunes:all_tracks' %}">Browse by Tracks</a>
+    </td></tr>
+        
+
+</table>
+
+{% endblock %}
