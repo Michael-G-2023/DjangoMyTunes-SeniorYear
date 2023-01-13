@@ -1,0 +1,35 @@
+{% extends "tunes/base_template.html" %}
+
+
+
+{% block content %}
+    <h3>Tracks by {{ artist.name }}</h3>
+    <table class="table table-dark table-hover" name = "Tracks">
+            
+
+        {% for track in trackslist %}
+        <tr>
+            
+            <td> <a href="{% url 'tunes:specific_track' track.id %}">{{ track }}</a></td>
+
+        </tr>
+        {% endfor %}
+
+
+    </table>
+
+    <h3>Albums by {{ artist.name }}</h3>
+
+    <table class="table table-dark table-hover" name = "Albums">
+
+            
+                
+        {% for a in albumslist %}
+        <tr>
+            <td> <a href="{% url 'tunes:specific_album' a.id %}">{{ a }}</a></td>
+        </tr>
+        {% endfor %}
+
+
+    </table>
+{% endblock %}

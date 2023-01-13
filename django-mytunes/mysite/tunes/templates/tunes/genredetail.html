@@ -1,0 +1,16 @@
+{% extends "tunes/base_template.html" %}
+
+{% block content %}
+    <h3>Songs In Genre</h3>
+    <table class="table table-dark table-hover">
+        
+        {% for track in genre %}
+
+        <tr>
+            <td><a href="{% url 'tunes:specific_track' track.id %}">{{ track }}</a></td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "tunes/base_template.html" %}
+
+
+
+{% block content %}
+    <h3>Tracks in {{ playlist.name }}</h3>
+    <table class="table table-dark table-hover">
+            
+    {% for thing in playlist.tracks.all %}
+
+
+    <tr>
+        <td><a href="{% url 'tunes:specific_track' thing.id %}">{{ thing }}</a></td>
+    </tr>
+
+    {% endfor %}
+
+    </table>
+    
+    <p>Want to share this playlist? Click <a href="{% url 'tunes:share_specific' playlist.id %}">here</a></p>    
+
+    <p>Want to add a new track?</p>
+
+    <form action="." method="post">
+        
+        {% csrf_token %}
+        
+        <select name = "track" id = "sel1" class = "form-control" required>
+            <option disabled selected value> -- select an option -- </option>
+            <div class="form-group mb-2">
+                {% for track in tracks %}
+                <option value = "{{ track.id }}"> {{ track }}</option>
+                {% endfor %}
+            </div>
+        </select>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}
+

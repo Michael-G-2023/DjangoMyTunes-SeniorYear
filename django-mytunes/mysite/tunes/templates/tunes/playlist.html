@@ -1,0 +1,48 @@
+{% extends "tunes/base_template.html" %}
+
+
+
+{% block content %}
+
+    <h3>Your Playlists</h3>
+    <table class="table table-dark table-hover">
+        
+                
+        {% for p in playlists %}
+
+        
+        <tr>
+            <td><a href = "{% url 'tunes:specific_playlist' p.id %}">{{ p.name }}</a></td>
+        </tr>
+
+        {% endfor %}
+
+    
+    </table>
+    <h3>Shared Playlists</h3>
+    <table class = "table table-dark table-hover">
+            
+        {% for sp in shared %}
+
+            <tr>
+                <td>
+                    <a href = "{% url 'tunes:specific_playlist' sp.id%}">{{sp.name}}</a>
+                </td>
+            </tr>
+        {% endfor %}
+        
+    </table>
+    <p>Want to create a new playlist?</p>
+
+    <form action="." method="post">
+        {% csrf_token %}
+        <div class="form-group mb-2">
+            <label for="name">Name of New Playlist <span style = "color: yellow;">{{ msg }}</span></label>
+            <input name = "name" type="text" id="name" />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+
+{% endblock %}
+

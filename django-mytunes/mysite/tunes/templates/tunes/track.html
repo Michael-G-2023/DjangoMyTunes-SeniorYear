@@ -1,0 +1,21 @@
+{% extends "tunes/base_template.html" %}
+
+
+
+{% block content %}
+    <h3>All Tracks</h3>
+    <table class="table table-dark table-hover">
+            
+        {% for t in tracks %}
+
+    
+        <tr>
+            <td title="Composer">{{ t.composer }}</td> <td title = "Title"><a href = "{{t.id}}">{{ t.name }}</a></td> <td title="milliseconds"> {{ t.milliseconds }}</td>
+        </tr>
+
+        {% endfor %}
+
+        
+    </table>
+
+{% endblock %}

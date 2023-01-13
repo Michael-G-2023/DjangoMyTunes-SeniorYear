@@ -1,0 +1,26 @@
+{% extends "tunes/base_template.html" %}
+
+
+
+{% block content %}
+    <table class="table table-dark table-hover">
+            
+        <tr>Track: {{track.name}}</tr>        
+            
+        <tr>
+            <td>Composer: <a href="{% url 'tunes:specific_artist' track.album.artist_id %}">{{track.composer}}</a></td>
+        </tr>
+
+        <tr>
+            <td>Genre: <a href="{% url 'tunes:specific_genre' track.genre_id %}"> {{track.genre}}</a></td>
+        </tr>
+
+        <tr>
+            <td>Album: <a href="{% url 'tunes:specific_album' track.album_id %}">{{track.album}}</a></td>
+        </tr>
+
+        <tr>
+            <td>Time in milliseconds: {{track.milliseconds}}</td>
+        </tr>
+    </table>
+{% endblock %}
